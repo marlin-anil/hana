@@ -1,0 +1,13 @@
+---
+- name: Automatic Shutdown
+  hosts: windows
+  become: true
+  gatherfacts: yes
+
+  tasks:
+    - name: shutdown windows system
+      ansible.windows.win_shutdown:
+        delay: 0
+        msg: "System is shutting down "
+        reboot: no
+      
