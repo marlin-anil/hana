@@ -1,0 +1,11 @@
+---
+- name: shutdown rhel
+  hosts: rhel
+  become: true
+  vars_files:
+    - pass.yml
+  tasks:
+    - name: shutdown
+      command: poweroff 
+      ignore_errors: true
+
