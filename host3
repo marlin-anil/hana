@@ -1,0 +1,4 @@
+[rhel]
+10.100.12.53 ansible_user=root
+
+
