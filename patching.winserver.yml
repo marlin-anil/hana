@@ -1,0 +1,15 @@
+---
+- name: Patching Windows Server 
+  hosts: windows
+  gather_facts: false
+  tasks:
+    - name: Install all update patching
+      win_updates: 
+        category_names: '*'
+        state: installed
+      register: update_result
+
+    - name: Reboot host if required
+      win_reboot:
+      when: update_result.reboot_required 
+
